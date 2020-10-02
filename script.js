@@ -57,35 +57,29 @@ function refresh() {
 
 function addByClick() {
   if (input.value !== "") {
-    //Buat element li
-    var newToDo = document.createElement("li");
-    var span = document.createElement("span");
-    span.appendChild(document.createTextNode(" x"));
-    //Masukkan text input ke element li
-    newToDo.appendChild(document.createTextNode(input.value));
-    //Masukkan element li ke ul
-    toDolist.appendChild(newToDo);
-    newToDo.appendChild(span);
-    //Bersihkan input
-    input.value = "";
-    refresh();
+    inject();
   }
 }
 
 function addByPressEnter(event) {
   if (input.value !== "" && event.keyCode === 13) {
-    var newToDo = document.createElement("li");
-    var span = document.createElement("span");
-    span.appendChild(document.createTextNode(" x"));
-    //Masukkan text input ke element li
-    newToDo.appendChild(document.createTextNode(input.value));
-    //Masukkan element li ke ul
-    toDolist.appendChild(newToDo);
-    newToDo.appendChild(span);
-    //Bersihkan input
-    input.value = "";
-    refresh();
+    inject();
   }
+}
+
+function inject() {
+  //Buat element li
+  var newToDo = document.createElement("li");
+  var span = document.createElement("span");
+  span.appendChild(document.createTextNode(" x"));
+  //Masukkan text input ke element li
+  newToDo.appendChild(document.createTextNode(input.value));
+  //Masukkan element li ke ul
+  toDolist.appendChild(newToDo);
+  newToDo.appendChild(span);
+  //Bersihkan input
+  input.value = "";
+  refresh();
 }
 
 refresh();
