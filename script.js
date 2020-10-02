@@ -1,14 +1,14 @@
 /*
-var add = document.getElementById("add");
-var input = document.getElementById("input");
-var ul = document.querySelector("ul");
+let add = document.getElementById("add");
+let input = document.getElementById("input");
+let ul = document.querySelector("ul");
 
 function inputLength() {
   return input.value.length;
 }
 
 function createElement() {
-  var li = document.createElement("li");
+  let li = document.createElement("li");
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
@@ -32,10 +32,10 @@ input.addEventListener("keypress", addListEnter);
 */
 
 //Select dom
-var input = document.getElementById("input");
-var add = document.getElementById("add");
-var toDolist = document.querySelector("ul");
-var delButton = document.createElement("button");
+let input = document.getElementById("input");
+let add = document.getElementById("add");
+let toDolist = document.querySelector("ul");
+let delButton = document.createElement("button");
 
 //Manipulate dom
 
@@ -46,9 +46,9 @@ add.addEventListener("click", addByClick);
 input.addEventListener("keypress", addByPressEnter);
 
 function refresh() {
-  var del = document.getElementsByClassName("del");
-  var checked = document.querySelectorAll("li");
-  for (var i = 0; i < del.length; i++) {
+  let del = document.getElementsByClassName("del");
+  let checked = document.querySelectorAll("li");
+  for (let i = 0; i < del.length; i++) {
     del[i].addEventListener("click", function () {
       this.parentNode.remove();
     });
@@ -72,8 +72,8 @@ function addByPressEnter(event) {
 
 function inject() {
   //Buat element li
-  var newToDo = document.createElement("li");
-  var delButton = document.createElement("button");
+  let newToDo = document.createElement("li");
+  let delButton = document.createElement("button");
   delButton.appendChild(document.createTextNode("x"));
   delButton.classList.value = "del";
   //Masukkan text input ke element li
