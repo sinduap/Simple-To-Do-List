@@ -35,7 +35,7 @@ input.addEventListener("keypress", addListEnter);
 var input = document.getElementById("input");
 var add = document.getElementById("add");
 var toDolist = document.querySelector("ul");
-var span = document.createElement("span");
+var delButton = document.createElement("button");
 
 //Manipulate dom
 
@@ -46,13 +46,18 @@ add.addEventListener("click", addByClick);
 input.addEventListener("keypress", addByPressEnter);
 
 function refresh() {
-  var del = document.querySelectorAll("span");
-  for (i = 0; i < del.length; i++) {
+  var del = document.getElementsByClassName("del");
+  var checked = document.querySelectorAll("li");
+  for (var i = 0; i < del.length; i++) {
     del[i].addEventListener("click", function () {
-      var list = this.parentNode;
-      list.remove();
+      this.parentNode.remove();
+    });
+    checked[i].addEventListener("click", function () {
+      this.classList.toggle("done");
     });
   }
+  console.log(del);
+  console.log(checked);
 }
 
 function addByClick() {
@@ -70,13 +75,14 @@ function addByPressEnter(event) {
 function inject() {
   //Buat element li
   var newToDo = document.createElement("li");
-  var span = document.createElement("span");
-  span.appendChild(document.createTextNode(" x"));
+  var delButton = document.createElement("button");
+  delButton.appendChild(document.createTextNode("x"));
+  delButton.classList.value = "del";
   //Masukkan text input ke element li
   newToDo.appendChild(document.createTextNode(input.value));
   //Masukkan element li ke ul
   toDolist.appendChild(newToDo);
-  newToDo.appendChild(span);
+  newToDo.appendChild(delButton);
   //Bersihkan input
   input.value = "";
   refresh();
