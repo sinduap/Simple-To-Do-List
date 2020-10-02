@@ -45,13 +45,18 @@ add.addEventListener("click", addByClick);
 // Input new to do ke to do list menggunakan enter
 input.addEventListener("keypress", addByPressEnter);
 
-function refresh() {
+function deleteList() {
   let del = document.getElementsByClassName("del");
-  let checked = document.querySelectorAll("li");
   for (let i = 0; i < del.length; i++) {
     del[i].addEventListener("click", function () {
       this.parentNode.remove();
     });
+  }
+}
+
+function doneList() {
+  let checked = document.querySelectorAll("li");
+  for (let i = 0; i < checked.length; i++) {
     checked[i].addEventListener("click", function () {
       this.classList.toggle("done");
     });
@@ -83,7 +88,9 @@ function inject() {
   newToDo.appendChild(delButton);
   //Bersihkan input
   input.value = "";
-  refresh();
+  deleteList();
+  doneList();
 }
 
-refresh();
+deleteList();
+doneList();
