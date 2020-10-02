@@ -56,8 +56,6 @@ function refresh() {
       this.classList.toggle("done");
     });
   }
-  console.log(del);
-  console.log(checked);
 }
 
 function addByClick() {
